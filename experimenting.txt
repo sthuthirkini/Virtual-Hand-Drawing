@@ -1,0 +1,37 @@
+
+
+Virtual-Hand-Drawing Objectives
+A simple project to implement landmarks,coordinates , tracking , drawing and gesture logic using OpenCV and Mediapipe modules of Python.
+
+A few fundamentals of Image Processing 
+-an image is seen by the computer as a numpy array of values of R,G,B in different conventions across different libraries.
+-
+- np.zeros_like() creates a black canvas (0,0,0) that acts like a transparent layer
+ when added to the webcam frame because adding black changes nothing, 
+ and the coloured line becomes visible.
+-  but a black line is indistinguishable from that black "transparent" background,
+ so we need a different way to represent the drawing layer, 
+ for which we use a mask,wherein we draw a line simultaneously as we draw on the canvas with white colour,
+  and then proceed to combine final output frame selecting appropriate regions from canas and frame:
+  frame where no lines are drawn on mask,
+  canvas wherever there is aline drawn(white colour) on the mask.
+-  Apart from being used to detect object of a certain colour using its H,S,V values ,
+ a new usecase of masks was found:to detect where an object is drawn.
+
+-  A more advanced solution would be to understand image processing with an extra parameter: R,G,B, and A,where A stands for alpha/transparency and then implement the mask.
+
+#the canvas is a completely black canvas
+#so a black line drawn on black canvas odesnt give accurate resukts
+#so we solve it by giving a choice:asking user to schoose colour of marker:
+#if anything but black: run current code
+#if black:tweak canvas colour
+#doesnt work:black canvas=transparent
+#white:opaque
+#solution:mask
+
+#FINAL SOLUTION:
+output = np.where(#CHOOSES based on a condition
+    mask_3channel == 255,#if mask has some white region on it=>line is drawn
+    canvas,#if line is drawn:take that region from canvas:R on black canvas/B on black canvas/G on black canvas/Black on black canvas/only that region is sslected to colour will be chosen
+    frame#other non line regions:from frame itself
+)

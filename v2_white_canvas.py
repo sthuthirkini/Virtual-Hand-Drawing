@@ -1,6 +1,7 @@
 #to build a virtual drawimg board
 
 #NOTE-to be run with python 3.11 as mediapipe is not compatible with python 3.14 yet
+#python3.11 "/Users/sthuthirkini/Python Projects/Project1-Virtual-Hand-Drawing/v3_mask_solution.py"
 
 #capture frame
 #capture movement
