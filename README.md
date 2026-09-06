@@ -1,4 +1,4 @@
-# Virtual-Drawing-Board
+# Virtual-Hand-Drawing
 A simple project to implement landmarks,coordinates , tracking , drawing and gesture logic using OpenCV and Mediapipe modules of Python.
 
 A few fundamentals of Image Processing that were grasped through experimenting around are:
